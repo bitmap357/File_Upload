@@ -402,7 +402,7 @@ search = Frame(root, background='tan')
 
 # Fonts
 title_fonts = ('Algerian', '32')
-btn_fonts = ('Times', '12')
+btn_fonts = ('High tower text', '12')
 
 # Pack the main frame.
 main.pack(fill='both', expand=1)
