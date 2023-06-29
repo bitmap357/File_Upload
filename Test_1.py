@@ -497,7 +497,7 @@ search_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 search_entry = Entry(search, font=('Times New Roman', '14'), width=40)
 search_entry.place(relx=0.4, rely=0.2, anchor=CENTER)
 
-search_button = Button(search, text='SEARCH', padx=50, pady=3, command=search_files)
+search_button = Button(search, text='SEARCH', padx=50, pady=3, command=search_files, background='silver')
 search_button.place(relx=0.7, rely=0.2, anchor=CENTER)
 
 treeview_label = Label(search, text="", font=('Times New Roman', '11'), background='tan')
