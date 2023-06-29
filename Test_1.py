@@ -22,7 +22,6 @@ with sqlite3.connect('test.db') as conn:
 
     # Create table for partners
 
-
     c.execute('''CREATE TABLE  IF NOT EXISTS partners (
                 tag text,
                 file_name text,
