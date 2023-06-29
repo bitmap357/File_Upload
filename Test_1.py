@@ -500,10 +500,16 @@ search_entry.place(relx=0.4, rely=0.2, anchor=CENTER)
 search_button = Button(search, text='SEARCH', padx=50, pady=3, command=search_files, background='silver')
 search_button.place(relx=0.7, rely=0.2, anchor=CENTER)
 
+
+style = ttk.Style()
+style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=('Calibri', 11))
+style.configure("mystyle.Treeview.Heading", font=('Calibri', 13,'bold'))
+style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
+
 treeview_label = Label(search, text="", font=('Times New Roman', '11'), background='tan')
 treeview_label.place(relx=0.5, rely=0.25, anchor=CENTER)
 
-trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15)
+trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15, style='mystyle.Treeview')
 trv.place(relx=0.5, rely=0.6, anchor=CENTER)
 
 trv.heading(1, text="Tag")
