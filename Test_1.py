@@ -431,7 +431,7 @@ file_upload_label = Label(upload, text='FILE UPLOAD', font=title_fonts, backgrou
 file_upload_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
 choose_file_button = Button(upload, text='CHOOSE FILE', padx=10, pady=3, command=upload_file_com,
-                            font=btn_fonts, background='silver', border=5)
+                            font=btn_fonts, background='silver')
 choose_file_button.place(relx=0.01, rely=0.25, anchor=W)
 
 choose_file_label = Label(upload, text="", borderwidth=1, relief='solid', padx=180, pady=6, background='lavender')
@@ -470,19 +470,23 @@ save_button.place(relx=0.3, rely=0.9)
 categories_label = Label(category, text='CATEGORIES', font=title_fonts, background='tan')
 categories_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
-internal_button = Button(category, text='INTERNAL', padx=110, pady=50, command=change_to_search_in)
+internal_button = Button(category, text='INTERNAL', padx=110, pady=50, command=change_to_search_in,
+                         background='cyan', border=5)
 internal_button.place(relx=0.16, rely=0.2)
 
-partners_button = Button(category, text='PARTNERS', padx=90, pady=50, command=change_to_search_par)
+partners_button = Button(category, text='PARTNERS', padx=90, pady=50, command=change_to_search_par,
+                         background='cyan', border=5)
 partners_button.place(relx=0.5, rely=0.2)
 
-non_partners_button = Button(category, text='NON-PARTNERS', padx=90, pady=50, command=change_to_search_non)
+non_partners_button = Button(category, text='NON-PARTNERS', padx=90, pady=50, command=change_to_search_non,
+                             background='cyan', border=5)
 non_partners_button.place(relx=0.16, rely=0.6)
 
-other_button = Button(category, text='OTHER', padx=120, pady=50, command=change_to_search_oth)
+other_button = Button(category, text='OTHER', padx=120, pady=50, command=change_to_search_oth,
+                      background='cyan', border=5)
 other_button.place(relx=0.5, rely=0.6)
 
-all_button = Button(category, text='ALL', padx=258, pady=15, command=change_to_search_all)
+all_button = Button(category, text='ALL', padx=258, pady=15, command=change_to_search_all, background='cyan', border=5)
 all_button.place(relx=0.16, rely=0.85)
 
 
