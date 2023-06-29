@@ -408,7 +408,7 @@ btn_fonts = ('High tower text', '12')
 main.pack(fill='both', expand=1)
 
 # Create the labels and buttons.
-home_button = Button(root, text='HOME', font=('Georgia', '14'), command=change_to_main, background='teal')
+home_button = Button(root, text='HOME', font=('Georgia', '14'), command=change_to_main, background='teal', border=5)
 home_button.place(relx=0, rely=0)
 
 # Welcome text on the main screen.
@@ -417,18 +417,21 @@ main_label.place(relx=0, rely=0)
 main_label.grid(pady=20, padx=10)
 
 # Button for file uploads.
-upload_file_button = Button(main, text='UPLOAD FILE', font=btn_fonts, pady=20, padx=40, command=change_to_upload, background='silver')
+upload_file_button = Button(main, text='UPLOAD FILE', font=btn_fonts, pady=20, padx=40,
+                            command=change_to_upload, background='silver', border=5)
 upload_file_button.grid(row=2, column=0, padx=10, pady=10)
 
 # Button for browsing files.
-browse_files_button = Button(main, text='BROWSE FILES', font=btn_fonts, pady=20, padx=40, command=change_to_category, background='silver')
+browse_files_button = Button(main, text='BROWSE FILES', font=btn_fonts, pady=20, padx=40,
+                             command=change_to_category, background='silver', border=5)
 browse_files_button.grid(row=3, column=0, padx=10, pady=10)
 
 # Upload Screen
 file_upload_label = Label(upload, text='FILE UPLOAD', font=title_fonts, background='tan')
 file_upload_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
-choose_file_button = Button(upload, text='CHOOSE FILE', padx=10, pady=3, command=upload_file_com, font=btn_fonts, background='silver')
+choose_file_button = Button(upload, text='CHOOSE FILE', padx=10, pady=3, command=upload_file_com,
+                            font=btn_fonts, background='silver', border=5)
 choose_file_button.place(relx=0.01, rely=0.25, anchor=W)
 
 choose_file_label = Label(upload, text="", borderwidth=1, relief='solid', padx=180, pady=6, background='lavender')
@@ -447,7 +450,8 @@ partners_radio = Radiobutton(frame_1, text='Partners File', value='Partners', va
                              font=('Times New Roman', '14'), background='lavender')
 non_partners_radio = Radiobutton(frame_1, text='Non-Partners File', value='Non_Partners', variable=category1,
                                  font=('Times New Roman', '14'), background='lavender')
-other_radio = Radiobutton(frame_1, text='Other File', value='Other', variable=category1, font=('Times New Roman', '14'), background='lavender')
+other_radio = Radiobutton(frame_1, text='Other File', value='Other', variable=category1,
+                          font=('Times New Roman', '14'), background='lavender')
 
 internal_radio.pack(padx=10, pady=10)
 partners_radio.pack(padx=10, pady=10)
@@ -458,7 +462,8 @@ frame_2 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=1
 frame_2.place(relx=0.55, rely=0.3)
 
 save_button = Button(upload, text='SAVE', padx=150, pady=3, state=DISABLED, command=lambda: save(
-    file_name=dic["file_name"], file=dic["file"], file_size=dic["file_size"]), font=btn_fonts, background='cyan')
+                     file_name=dic["file_name"], file=dic["file"], file_size=dic["file_size"]), font=btn_fonts,
+                     background='cyan', border=5)
 save_button.place(relx=0.3, rely=0.9)
 
 # Category Screen
