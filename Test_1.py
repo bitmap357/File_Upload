@@ -500,7 +500,7 @@ search_entry.place(relx=0.4, rely=0.2, anchor=CENTER)
 search_button = Button(search, text='SEARCH', padx=50, pady=3, command=search_files)
 search_button.place(relx=0.7, rely=0.2, anchor=CENTER)
 
-treeview_label = Label(search, text="", font=('Times New Roman', '11'))
+treeview_label = Label(search, text="", font=('Times New Roman', '11'), background='tan')
 treeview_label.place(relx=0.5, rely=0.25, anchor=CENTER)
 
 trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15)
