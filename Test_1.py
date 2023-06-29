@@ -180,10 +180,15 @@ def change_to_search(tag=None):
         # Insert records into the treeview.
         # Inside the `search_files()` function
         for record in records:
+            count = 1
             file_size = record[4]
             date = record[3]
-            record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
-            trv.insert('', 'end', values=record_display)
+            record_display = (record[0], record[1], date, file_size, record[5])
+            if count % 2 == 1:
+                trv.insert('', 'end', values=record_display, tags=('odd',))
+            else:
+                trv.insert('', 'end', values=record_display, tags=('even',))
+
         conn.commit()
 
 
