@@ -183,6 +183,7 @@ def change_to_search(tag=None):
 
         # Insert records into the treeview.
         for record in records:
+            count = 1
             file_size = record[4]
             date = record[3]
             record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
