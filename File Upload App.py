@@ -55,10 +55,10 @@ c.execute('''CREATE TABLE  IF NOT EXISTS other (
             )''')
 
 # Frames for the whole project
-main = Frame(root)
-upload = Frame(root)
-category = Frame(root)
-search = Frame(root)
+main = Frame(root, background='tan')
+upload = Frame(root, background='tan')
+category = Frame(root, background='tan')
+search = Frame(root, background='tan')
 main.pack()
 
 # Declaring empty dictionary
