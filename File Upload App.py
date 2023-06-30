@@ -59,7 +59,7 @@ main = Frame(root, background='tan')
 upload = Frame(root, background='tan')
 category = Frame(root, background='tan')
 search = Frame(root, background='tan')
-main.pack()
+main.pack(fill='both', expand=1)
 
 # Declaring empty dictionary
 dic = {}
@@ -402,6 +402,7 @@ def delete():
             conn.commit()
             conn.close()
             toplevel.destroy()
+
 
 # Fonts
 title_fonts = ('Algerian', '32')
