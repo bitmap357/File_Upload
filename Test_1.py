@@ -178,6 +178,7 @@ def change_to_search(tag=None):
             records = c.fetchall()
 
         # Insert records into the treeview.
+
         # Inside the `search_files()` function
         for record in records:
             count = 1
@@ -185,9 +186,9 @@ def change_to_search(tag=None):
             date = record[3]
             record_display = (record[0], record[1], date, file_size, record[5])
             if count % 2 == 1:
-                trv.insert('', 'end', values=record_display, tags=('odd',))
+                trv.insert('', 'end', values=record_display, tags=['odd'])
             else:
-                trv.insert('', 'end', values=record_display, tags=('even',))
+                trv.insert('', 'end', values=record_display, tags=['even'])
 
         conn.commit()
 
@@ -511,10 +512,14 @@ style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=('Calibri',
 style.configure("mystyle.Treeview.Heading", font=('Calibri', 13,'bold'))
 style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
 
+
+
 treeview_label = Label(search, text="", font=('Times New Roman', '11'), background='tan')
 treeview_label.place(relx=0.5, rely=0.25, anchor=CENTER)
 
 trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15, style='mystyle.Treeview')
+trv.tag_configure('odd', background='#E8E8E8')
+trv.tag_configure('even', background='#DFDFDF')
 trv.place(relx=0.5, rely=0.6, anchor=CENTER)
 
 trv.heading(1, text="Tag")
