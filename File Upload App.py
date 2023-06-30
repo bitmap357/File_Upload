@@ -508,6 +508,8 @@ style.configure("mystyle.Treeview.Heading", font=('Calibri', 13, 'bold'))
 style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
 
 trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15)
+trv.tag_configure('odd', background='#E8E8E8')
+trv.tag_configure('even', background='#DFDFDF')
 trv.place(relx=0.5, rely=0.6, anchor=CENTER)
 
 trv.heading(1, text="Tag")
