@@ -414,7 +414,7 @@ home_button.place(relx=0, rely=0)
 
 
 # Welcome text on the main screen
-main_label = Label(main, text='WELCOME\n WHAT WOULD YOU LIKE TO DO TODAY?', font=('Times New Roman', '32'))
+main_label = Label(main, text='WELCOME\n WHAT WOULD YOU LIKE TO DO TODAY?', font=title_fonts, background='tan')
 main_label.place(relx=0, rely=0)
 main_label.grid(pady=20, padx=10)
 
@@ -428,7 +428,7 @@ browse_files_button.grid(row=3, column=0, padx=10, pady=10)
 
 
 # Upload Screen
-file_upload_label = Label(upload, text='FILE UPLOAD', font=('Times New Roman', '32'))
+file_upload_label = Label(upload, text='FILE UPLOAD', font=title_fonts, background='tan')
 file_upload_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
 choose_file_button = Button(upload, text='CHOOSE FILE', padx=10, pady=3, command=upload_file_com)
@@ -441,7 +441,7 @@ choose_file_label.place(relx=0.13, rely=0.22)
 frame_1 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10)
 frame_1.place(relx=0.3, rely=0.3)
 
-category_label = Label(frame_1, text='SELECT CATEGORY', font=('Times New Roman', '18'), padx=30)
+category_label = Label(frame_1, text='SELECT CATEGORY', padx=30, font=title_fonts, background='lavender')
 category_label.pack()
 
 category1 = StringVar(value='Other')
@@ -469,7 +469,7 @@ save_button.place(relx=0.3, rely=0.9)
 
 
 # Category Screen
-categories_label = Label(category, text='CATEGORIES', font=('Times New Roman', '32'))
+categories_label = Label(category, text='CATEGORIES', font=title_fonts, background='tan')
 categories_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
 internal_button = Button(category, text='INTERNAL', padx=110, pady=50, command=change_to_search_in)
@@ -489,7 +489,7 @@ all_button.place(relx=0.16, rely=0.85)
 
 
 # Search Screen
-search_label = Label(search, text='SEARCH FILES', font=('Times New Roman', '32'))
+search_label = Label(search, text='SEARCH FILES', font=title_fonts, background='tan')
 search_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
 search_entry = Entry(search, font=('Times New Roman', '14'), width=40)
@@ -498,8 +498,14 @@ search_entry.place(relx=0.4, rely=0.2, anchor=CENTER)
 search_button = Button(search, text='SEARCH', padx=50, pady=3, command=search_files)
 search_button.place(relx=0.7, rely=0.2, anchor=CENTER)
 
+# Treeview
 treeview_label = Label(search, text="", font=('Times New Roman', '11'))
 treeview_label.place(relx=0.5, rely=0.25, anchor=CENTER)
+
+style = ttk.Style()
+style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=('Calibri', 11))
+style.configure("mystyle.Treeview.Heading", font=('Calibri', 13, 'bold'))
+style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
 
 trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15)
 trv.place(relx=0.5, rely=0.6, anchor=CENTER)

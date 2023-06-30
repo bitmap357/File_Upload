@@ -509,9 +509,8 @@ search_button.place(relx=0.7, rely=0.2, anchor=CENTER)
 
 style = ttk.Style()
 style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=('Calibri', 11))
-style.configure("mystyle.Treeview.Heading", font=('Calibri', 13,'bold'))
+style.configure("mystyle.Treeview.Heading", font=('Calibri', 13, 'bold'))
 style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
-
 
 
 treeview_label = Label(search, text="", font=('Times New Roman', '11'), background='tan')
