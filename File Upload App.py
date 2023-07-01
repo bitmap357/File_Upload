@@ -439,7 +439,7 @@ choose_file_button.place(relx=0.01, rely=0.25, anchor=W)
 
 
 choose_file_label = Label(upload, text="", borderwidth=1, relief='solid', padx=180, pady=6, background='lavender')
-choose_file_label.place(relx=0.13, rely=0.22)
+choose_file_label.place(relx=0.17, rely=0.22)
 
 frame_1 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10, background='lavender')
 frame_1.place(relx=0.3, rely=0.3)
