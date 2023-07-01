@@ -419,11 +419,13 @@ main_label.place(relx=0, rely=0)
 main_label.grid(pady=20, padx=10)
 
 # Button for file uploads
-upload_file_button = Button(main, text='UPLOAD FILE', pady=20, padx=40, command=change_to_upload)
+upload_file_button = Button(main, text='UPLOAD FILE', pady=20, padx=40,
+                            command=change_to_upload, background='silver', border=5)
 upload_file_button.grid(row=2, column=0, padx=10, pady=10)
 
 # Button for browsing files
-browse_files_button = Button(main, text='BROWSE FILES', pady=20, padx=40, command=change_to_category)
+browse_files_button = Button(main, text='BROWSE FILES', pady=20, padx=40, command=change_to_category,
+                             background='silver', border=5)
 browse_files_button.grid(row=3, column=0, padx=10, pady=10)
 
 
