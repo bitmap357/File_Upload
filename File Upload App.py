@@ -472,19 +472,24 @@ save_button.place(relx=0.3, rely=0.9)
 categories_label = Label(category, text='CATEGORIES', font=title_fonts, background='tan')
 categories_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
-internal_button = Button(category, text='INTERNAL', padx=110, pady=50, command=change_to_search_in)
+internal_button = Button(category, text='INTERNAL', padx=110, pady=50, command=change_to_search_in,
+                         background='cyan', border=5)
 internal_button.place(relx=0.16, rely=0.2)
 
-partners_button = Button(category, text='PARTNERS', padx=90, pady=50, command=change_to_search_par)
+partners_button = Button(category, text='PARTNERS', padx=90, pady=50, command=change_to_search_par,
+                         background='cyan', border=5)
 partners_button.place(relx=0.5, rely=0.2)
 
-non_partners_button = Button(category, text='NON-PARTNERS', padx=90, pady=50, command=change_to_search_non)
+non_partners_button = Button(category, text='NON-PARTNERS', padx=90, pady=50, command=change_to_search_non,
+                             background='cyan', border=5)
 non_partners_button.place(relx=0.16, rely=0.55)
 
-other_button = Button(category, text='OTHER', padx=100, pady=50, command=change_to_search_oth)
+other_button = Button(category, text='OTHER', padx=100, pady=50, command=change_to_search_oth,
+                      background='cyan', border=5)
 other_button.place(relx=0.5, rely=0.55)
 
-all_button = Button(category, text='ALL', padx=258, pady=15, command=change_to_search_all)
+all_button = Button(category, text='ALL', padx=258, pady=15, command=change_to_search_all,
+                    background='cyan', border=5)
 all_button.place(relx=0.16, rely=0.85)
 
 
