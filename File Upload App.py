@@ -436,10 +436,10 @@ choose_file_button = Button(upload, text='CHOOSE FILE', padx=10, pady=3, command
 choose_file_button.place(relx=0.01, rely=0.25, anchor=W)
 
 
-choose_file_label = Label(upload, text="", borderwidth=1, relief='solid', padx=180, pady=6)
+choose_file_label = Label(upload, text="", borderwidth=1, relief='solid', padx=180, pady=6, background='lavender')
 choose_file_label.place(relx=0.13, rely=0.22)
 
-frame_1 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10)
+frame_1 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10, background='lavender')
 frame_1.place(relx=0.3, rely=0.3)
 
 category_label = Label(frame_1, text='SELECT CATEGORY', padx=30, font=title_fonts, background='lavender')
