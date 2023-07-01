@@ -455,7 +455,6 @@ non_partners_radio = Radiobutton(frame_1, text='Non-Partners File', value='Non_P
 other_radio = Radiobutton(frame_1, text='Other File', value='Other', variable=category1,
                           font=('Times New Roman', '14'), background='lavender')
 
-
 internal_radio.pack(padx=10, pady=10)
 partners_radio.pack(padx=10, pady=10)
 non_partners_radio.pack(padx=10, pady=10)
@@ -464,9 +463,9 @@ other_radio.pack(padx=10, pady=10)
 frame_2 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10)
 frame_2.place(relx=0.55, rely=0.3)
 
-
 save_button = Button(upload, text='SAVE', padx=150, pady=3, command=lambda: save(
-                    file_name=dic["file_name"], file=dic["file"], file_size=dic["file_size"]))
+                    file_name=dic["file_name"], file=dic["file"], file_size=dic["file_size"]), font=btn_fonts,
+                     background='cyan', border=5)
 save_button.place(relx=0.3, rely=0.9)
 
 
