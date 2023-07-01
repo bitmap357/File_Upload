@@ -511,9 +511,9 @@ treeview_label = Label(search, text="", font=('Times New Roman', '11'))
 treeview_label.place(relx=0.5, rely=0.25, anchor=CENTER)
 
 style = ttk.Style()
-style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=('Calibri', 11))
-style.configure("mystyle.Treeview.Heading", font=('Calibri', 13, 'bold'))
-style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
+style.configure("my_style.Treeview", highlightthickness=0, bd=0, font=('Calibri', 11))
+style.configure("my_style.Treeview.Heading", font=('Calibri', 13, 'bold'))
+style.layout("my_style.Treeview", [('my_style.Treeview.tree_area', {'sticky': 'nswe'})])
 
 trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15)
 trv.tag_configure('odd', background='#E8E8E8')
