@@ -442,7 +442,7 @@ choose_file_label.place(relx=0.13, rely=0.22)
 frame_1 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10, background='lavender')
 frame_1.place(relx=0.3, rely=0.3)
 
-category_label = Label(frame_1, text='SELECT CATEGORY', padx=30, font=title_fonts, background='lavender')
+category_label = Label(frame_1, text='SELECT CATEGORY', font=('Algerian', '18'), padx=30, background='lavender')
 category_label.pack()
 
 category1 = StringVar(value='Other')
