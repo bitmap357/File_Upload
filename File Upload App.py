@@ -161,40 +161,40 @@ def change_to_search(tag=None):
     cat = tag
 
     # Create a database connection and cursor.
-    with sqlite3.connect('file_upload.db') as conn:
-        c = conn.cursor()
+    conn = sqlite3.connect('file_upload.db')
+    c = conn.cursor()
 
-        if tag:
-            # Fetch records matching the specified tag.
-            table_name = tag.lower()
-            query = "SELECT * FROM {} WHERE tag=?".format(table_name)
-            c.execute(query, (tag,))
-            records = c.fetchall()
+    if tag:
+        # Fetch records matching the specified tag.
+        table_name = tag.lower()
+        query = "SELECT * FROM {} WHERE tag=?".format(table_name)
+        c.execute(query, (tag,))
+        records = c.fetchall()
 
+    else:
+        c.execute("""SELECT * FROM partners
+                     UNION ALL
+                     SELECT * FROM non_partners
+                     UNION ALL
+                     SELECT * FROM internal
+                     UNION ALL
+                     SELECT * FROM other""")
+        records = c.fetchall()
+
+    # Insert records into the treeview.
+    for record in records:
+        count = 1
+        file_size = record[4]
+        date = record[3]
+        record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
+        if count % 2 == 1:
+            trv.insert('', 'end', values=record_display, tags=['odd'])
         else:
-            c.execute("""SELECT * FROM partners
-                         UNION ALL
-                         SELECT * FROM non_partners
-                         UNION ALL
-                         SELECT * FROM internal
-                         UNION ALL
-                         SELECT * FROM other""")
-            records = c.fetchall()
+            trv.insert('', 'end', values=record_display, tags=['even'])
 
-        # Insert records into the treeview.
-        for record in records:
-            count = 1
-            file_size = record[4]
-            date = record[3]
-            record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
-            if count % 2 == 1:
-                trv.insert('', 'end', values=record_display, tags=['odd'])
-            else:
-                trv.insert('', 'end', values=record_display, tags=['even'])
-
-        conn.commit()
-        # Close the database connection.
-        conn.close()
+    conn.commit()
+    # Close the database connection.
+    conn.close()
 
 
 def change_to_search_all():
@@ -242,27 +242,27 @@ def save(file_name, file, file_size):
     tag = category1.get()
 
     # Insert into table
-    with sqlite3.connect('file_upload.db') as conn:
-        c = conn.cursor()
-        # Inserting file into partners database
-        if tag == "Partners":
-            c.execute("INSERT INTO partners (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
-                      (tag, file_name, file, timestamp, file_size))
-        # Inserting file into non-partners database
-        if tag == "Non_Partners":
-            c.execute("INSERT INTO non_partners (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
-                      (tag, file_name, file, timestamp, file_size))
-        # Inserting file into internal database
-        if tag == "Internal":
-            c.execute("INSERT INTO internal (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
-                      (tag, file_name, file, timestamp, file_size))
-        # Inserting file into other database
-        if tag == "Other":
-            c.execute("INSERT INTO other (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
-                      (tag, file_name, file, timestamp, file_size))
-        conn.commit()
-        # Close the database connection.
-        conn.close()
+    conn = sqlite3.connect('file_upload.db')
+    c = conn.cursor()
+    # Inserting file into partners database
+    if tag == "Partners":
+        c.execute("INSERT INTO partners (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
+                  (tag, file_name, file, timestamp, file_size))
+    # Inserting file into non-partners database
+    if tag == "Non_Partners":
+        c.execute("INSERT INTO non_partners (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
+                  (tag, file_name, file, timestamp, file_size))
+    # Inserting file into internal database
+    if tag == "Internal":
+        c.execute("INSERT INTO internal (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
+                  (tag, file_name, file, timestamp, file_size))
+    # Inserting file into other database
+    if tag == "Other":
+        c.execute("INSERT INTO other (tag, file_name, file, date, size) VALUES (?, ?, ?, ?, ?)",
+                  (tag, file_name, file, timestamp, file_size))
+    conn.commit()
+    # Close the database connection.
+    conn.close()
 
     tkinter.messagebox.showinfo("File Uploaded", "FILE UPLOADED SUCCESSFULLY")
     choose_file_label.config(text="")
@@ -282,45 +282,45 @@ def search_files():
     keyword = search_entry.get()
 
     # Create a database connection and cursor.
-    with sqlite3.connect('file_upload.db') as conn:
-        c = conn.cursor()
+    conn = sqlite3.connect('file_upload.db')
+    c = conn.cursor()
 
-        # Calling global table_name
-        global table_name
+    # Calling global table_name
+    global table_name
 
-        # Fetch records matching the search keyword.
-        if table_name == '':
-            query = """SELECT * FROM partners WHERE file_name LIKE ?
-                     UNION ALL
-                     SELECT * FROM non_partners WHERE file_name LIKE ?
-                     UNION ALL
-                     SELECT * FROM internal WHERE file_name LIKE ?
-                     UNION ALL
-                     SELECT * FROM other WHERE file_name LIKE ?"""
-            c.execute(query, ('%' + keyword + '%', '%' + keyword + '%', '%' + keyword + '%', '%' + keyword + '%'))
-            records = c.fetchall()
+    # Fetch records matching the search keyword.
+    if table_name == '':
+        query = """SELECT * FROM partners WHERE file_name LIKE ?
+                 UNION ALL
+                 SELECT * FROM non_partners WHERE file_name LIKE ?
+                 UNION ALL
+                 SELECT * FROM internal WHERE file_name LIKE ?
+                 UNION ALL
+                 SELECT * FROM other WHERE file_name LIKE ?"""
+        c.execute(query, ('%' + keyword + '%', '%' + keyword + '%', '%' + keyword + '%', '%' + keyword + '%'))
+        records = c.fetchall()
 
-        # Insert records into the treeview.
-            for record in records:
-                file_size = record[4]
-                date = record[3]
-                record_display = (record[0], record[1], date, file_size)  # Modified line
-                trv.insert('', 'end', values=record_display)
+    # Insert records into the treeview.
+        for record in records:
+            file_size = record[4]
+            date = record[3]
+            record_display = (record[0], record[1], date, file_size)  # Modified line
+            trv.insert('', 'end', values=record_display)
 
-        else:
-            query = "SELECT * FROM {} WHERE file_name LIKE ?".format(table_name)
+    else:
+        query = "SELECT * FROM {} WHERE file_name LIKE ?".format(table_name)
 
-            c.execute(query, ('%' + keyword + '%',))
-            records = c.fetchall()
+        c.execute(query, ('%' + keyword + '%',))
+        records = c.fetchall()
 
-            for record in records:
-                file_size = record[4]
-                date = record[3]
-                record_display = (record[0], record[1], date, file_size)  # Modified line
-                trv.insert('', 'end', values=record_display)
-        conn.commit()
-        # Close the database connection.
-        conn.close()
+        for record in records:
+            file_size = record[4]
+            date = record[3]
+            record_display = (record[0], record[1], date, file_size)  # Modified line
+            trv.insert('', 'end', values=record_display)
+    conn.commit()
+    # Close the database connection.
+    conn.close()
 
 
 def popup(event):
@@ -358,50 +358,50 @@ def delete():
         tag = values[0]
 
         # Create a database connection and cursor.
-        with sqlite3.connect('test.db') as conn:
-            c = conn.cursor()
+        conn = sqlite3.connect('file_upload.db')
+        c = conn.cursor()
 
-            global table_name
-            global cat
+        global table_name
+        global cat
 
-            if table_name:
-                query1 = "DELETE FROM {} WHERE oid=?".format(table_name)
-                c.execute(query1, (entry_id,))
-                trv.delete(*trv.get_children())
-            else:
-                table_name1 = tag.lower()
-                query1 = "DELETE FROM {} WHERE oid=?".format(table_name1)
-                c.execute(query1, (entry_id,))
-                trv.delete(*trv.get_children())
+        if table_name:
+            query1 = "DELETE FROM {} WHERE oid=?".format(table_name)
+            c.execute(query1, (entry_id,))
+            trv.delete(*trv.get_children())
+        else:
+            table_name1 = tag.lower()
+            query1 = "DELETE FROM {} WHERE oid=?".format(table_name1)
+            c.execute(query1, (entry_id,))
+            trv.delete(*trv.get_children())
 
-            if cat:
-                # Fetch records matching the specified tag.
-                query = "SELECT *, oid FROM {} WHERE tag=?".format(table_name)
-                c.execute(query, (cat,))
-                records = c.fetchall()
+        if cat:
+            # Fetch records matching the specified tag.
+            query = "SELECT *, oid FROM {} WHERE tag=?".format(table_name)
+            c.execute(query, (cat,))
+            records = c.fetchall()
 
-            else:
-                # Fetch all records.
-                c.execute("""SELECT *, oid FROM partners
-                                 UNION ALL
-                                 SELECT *, oid FROM non_partners
-                                 UNION ALL
-                                 SELECT *, oid FROM internal
-                                 UNION ALL
-                                 SELECT *, oid FROM other""")
-                records = c.fetchall()
+        else:
+            # Fetch all records.
+            c.execute("""SELECT *, oid FROM partners
+                             UNION ALL
+                             SELECT *, oid FROM non_partners
+                             UNION ALL
+                             SELECT *, oid FROM internal
+                             UNION ALL
+                             SELECT *, oid FROM other""")
+            records = c.fetchall()
 
-            # Insert records into the treeview.
-            # Inside the `search_files()` function
-            for record in records:
-                file_size = record[4]
-                date = record[3]
-                record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
-                trv.insert('', 'end', values=record_display)
+        # Insert records into the treeview.
+        # Inside the `search_files()` function
+        for record in records:
+            file_size = record[4]
+            date = record[3]
+            record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
+            trv.insert('', 'end', values=record_display)
 
-            conn.commit()
-            conn.close()
-            toplevel.destroy()
+        conn.commit()
+        conn.close()
+        toplevel.destroy()
 
 
 # Fonts
