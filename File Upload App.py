@@ -447,12 +447,13 @@ category_label.pack()
 
 category1 = StringVar(value='Other')
 internal_radio = Radiobutton(frame_1, text='Internal File', value='Internal', variable=category1,
-                             font=('Times New Roman', '14'))
+                             font=('Times New Roman', '14'), background='lavender')
 partners_radio = Radiobutton(frame_1, text='Partners File', value='Partners', variable=category1,
-                             font=('Times New Roman', '14'))
+                             font=('Times New Roman', '14'), background='lavender')
 non_partners_radio = Radiobutton(frame_1, text='Non-Partners File', value='Non_Partners', variable=category1,
-                                 font=('Times New Roman', '14'))
-other_radio = Radiobutton(frame_1, text='Other File', value='Other', variable=category1, font=('Times New Roman', '14'))
+                                 font=('Times New Roman', '14'), background='lavender')
+other_radio = Radiobutton(frame_1, text='Other File', value='Other', variable=category1,
+                          font=('Times New Roman', '14'), background='lavender')
 
 
 internal_radio.pack(padx=10, pady=10)
