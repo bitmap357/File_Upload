@@ -447,6 +447,7 @@ frame_1.place(relx=0.3, rely=0.3)
 category_label = Label(frame_1, text='SELECT CATEGORY', font=('Algerian', '18'), padx=30, background='lavender')
 category_label.pack()
 
+# Radio buttons
 category1 = StringVar(value='Other')
 internal_radio = Radiobutton(frame_1, text='Internal File', value='Internal', variable=category1,
                              font=('Times New Roman', '14'), background='lavender')
