@@ -232,6 +232,7 @@ def change_to_search_oth():
     trv.column("#1", width=0, stretch=tkinter.NO)
 
 
+# Function for saving an entry into the database
 def save(file_name, file, file_size):
     """Save a file to the database."""
 
