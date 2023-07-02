@@ -189,7 +189,7 @@ def change_to_search(tag=None):
         record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
         if count % 2 == 1:
             trv.insert('', 'end', values=record_display, tags=['odd'])
-        else:
+        elif count % 2 == 0:
             trv.insert('', 'end', values=record_display, tags=['even'])
 
     conn.commit()
