@@ -322,7 +322,7 @@ def search_files():
     # Close the database connection.
     conn.close()
 
-
+# Window popup
 def popup(event):
     global toplevel
     toplevel = Toplevel(root)
