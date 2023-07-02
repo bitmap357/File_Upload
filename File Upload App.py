@@ -522,6 +522,7 @@ trv.tag_configure('odd', background='#E8E8E8')
 trv.tag_configure('even', background='#DFDFDF')
 trv.place(relx=0.5, rely=0.6, anchor=CENTER)
 
+# Column naming
 trv.heading(1, text="Tag")
 trv.column(1, width=100, anchor=CENTER)
 trv.heading(2, text="File Name")
