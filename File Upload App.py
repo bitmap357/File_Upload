@@ -516,6 +516,7 @@ style.configure("my_style.Treeview", highlightthickness=0, bd=0, font=('Calibri'
 style.configure("my_style.Treeview.Heading", font=('Calibri', 13, 'bold'))
 style.layout("my_style.Treeview", [('my_style.Treeview.tree_area', {'sticky': 'nswe'})])
 
+# Tree view columns
 trv = ttk.Treeview(search, columns=('1', '2', '3', '4'), show="headings", height=15)
 trv.tag_configure('odd', background='#E8E8E8')
 trv.tag_configure('even', background='#DFDFDF')
