@@ -341,6 +341,7 @@ def popup(event):
     b2.place(relx=0.7, rely=0.65, anchor=CENTER)
 
 
+# Function to delete an entry
 def delete():
     # Message box
     answer = askyesno(title='Delete Entry', message='Are you sure you want to delete the entry?')
