@@ -186,7 +186,7 @@ def change_to_search(tag=None):
         count = 1
         file_size = record[4]
         date = record[3]
-        record_display = (record[0], record[1], date, file_size, record[5])  # Modified line
+        record_display = (record[0], record[1], date, file_size, record[5])
         if count % 2 == 1:
             trv.insert('', 'end', values=record_display, tags=['odd'])
         elif count % 2 == 0:
