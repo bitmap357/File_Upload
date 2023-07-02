@@ -466,6 +466,7 @@ other_radio.pack(padx=10, pady=10)
 frame_2 = Frame(upload, highlightbackground='gray', highlightthickness=2, padx=10, pady=10)
 frame_2.place(relx=0.55, rely=0.3)
 
+# Save button
 save_button = Button(upload, text='SAVE', padx=150, pady=3, command=lambda: save(
                     file_name=dic["file_name"], file=dic["file"], file_size=dic["file_size"]), font=btn_fonts,
                      background='cyan', border=5)
