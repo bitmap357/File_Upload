@@ -191,6 +191,8 @@ def change_to_search(tag=None):
             trv.insert('', 'end', values=record_display, tags=['odd'])
         elif count % 2 == 0:
             trv.insert('', 'end', values=record_display, tags=['even'])
+        else:
+            trv.insert('', 'end', values=record_display)
 
     conn.commit()
     # Close the database connection.
