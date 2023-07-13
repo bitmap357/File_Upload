@@ -111,6 +111,13 @@ def file_size_mb(file_path):
     return rounded
 
 
+def change_to_frame(frame):
+    """Switch to the specified frame."""
+    for f in frames:
+        f.pack_forget()  # Hide all frames
+    frame.pack(fill='both', expand=1)  # Show the specified frame
+
+
 def change_to_main():
     """Switch to the main screen."""
 
