@@ -122,6 +122,7 @@ def change_to_main():
     """Switch to the main screen."""
 
     # Hide all frames except the main frame.
+    change_to_frame(main)
     upload.pack_forget()
     category.pack_forget()
     search.pack_forget()
