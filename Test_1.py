@@ -436,7 +436,7 @@ home_button.place(relx=0.007, rely=0)
 
 
 previous_button = Button(root, text='PREVIOUS', font=('Georgia', '14'),
-                         command=change_to_main, background='teal', border=5)
+                         command=change_to_frame(), background='teal', border=5)
 previous_button.place(relx=0.86, rely=0)
 
 
