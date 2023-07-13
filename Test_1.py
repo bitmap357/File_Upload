@@ -420,6 +420,9 @@ upload = Frame(root, background='tan')
 category = Frame(root, background='tan')
 search = Frame(root, background='tan')
 
+# Add the frames to the list
+frames.extend([main, upload, category, search])
+
 # Fonts
 title_fonts = ('Algerian', '32')
 btn_fonts = ('High tower text', '12')
