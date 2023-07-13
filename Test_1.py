@@ -144,6 +144,7 @@ def change_to_category():
     """Switch to the category screen."""
 
     # Hide all frames except the category frame.
+    change_to_frame(category)
     main.pack_forget()
     upload.pack_forget()
     search.pack_forget()
