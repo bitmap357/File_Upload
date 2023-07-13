@@ -10,6 +10,9 @@ import datetime
 import os
 
 
+frames = []
+
+
 # Declaring global dictionary
 dic = {}
 table_name = ''
