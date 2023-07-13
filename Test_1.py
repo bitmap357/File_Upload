@@ -133,6 +133,7 @@ def change_to_upload():
     """Switch to the upload screen."""
 
     # Hide all frames except the upload frame.
+    change_to_frame(upload)
     main.pack_forget()
     category.pack_forget()
     search.pack_forget()
