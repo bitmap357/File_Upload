@@ -155,6 +155,7 @@ def change_to_search(tag=None):
     """Switch to the search screen and display files with the specified tag."""
 
     # Hide all frames except the search frame.
+    change_to_frame(search)
     main.pack_forget()
     upload.pack_forget()
     category.pack_forget()
