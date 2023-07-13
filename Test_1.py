@@ -415,13 +415,12 @@ main.pack(fill='both', expand=1)
 
 # Create the labels and buttons.
 home_button = Button(root, text='HOME', font=('Georgia', '14'), command=change_to_main, background='teal', border=5)
-# home_button.place(relx=0, rely=0)
-home_button.pack(side=TOP, anchor=NW)
+home_button.place(relx=0.007, rely=0)
+
 
 previous_button = Button(root, text='PREVIOUS', font=('Georgia', '14'),
                          command=change_to_main, background='teal', border=5)
-# previous_button.place(relx=1, rely=0)
-previous_button.pack(side=TOP, anchor=NE)
+previous_button.place(relx=0.86, rely=0)
 
 
 # Welcome text on the main screen.
