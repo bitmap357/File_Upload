@@ -417,6 +417,10 @@ main.pack(fill='both', expand=1)
 home_button = Button(root, text='HOME', font=('Georgia', '14'), command=change_to_main, background='teal', border=5)
 home_button.place(relx=0, rely=0)
 
+previous_button = Button(root, text='PREVIOUS', font=('Georgia', '14'),
+                         command=change_to_main, background='teal', border=5)
+previous_button.place(relx=1, rely=0)
+
 # Welcome text on the main screen.
 main_label = Label(main, text='WELCOME\n WHAT WOULD YOU LIKE TO DO TODAY?', font=title_fonts, background='tan')
 main_label.place(relx=0, rely=0)
